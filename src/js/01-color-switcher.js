@@ -4,6 +4,7 @@ const refs = {
   body: document.querySelector('body'),
 };
 
+refs.closeBtn.disabled = true;
 refs.saveBtn.addEventListener('click', onSaveBtnClick);
 refs.closeBtn.addEventListener('click', onCloseBtnClick);
 

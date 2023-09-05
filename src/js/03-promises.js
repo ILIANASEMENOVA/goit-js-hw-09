@@ -23,6 +23,7 @@ function onFormSubmit(e) {
         console.log(`❌ Rejected promise ${position} in ${delay}ms`);
       });
   }
+  e.currentTarget.reset();
 }
 
 function createPromise(position, delay) {

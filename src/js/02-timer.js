@@ -10,6 +10,7 @@ const refs = {
   dataSeconds: document.querySelector('[data-seconds]'),
   dataHours: document.querySelector('[data-hours]'),
 };
+refs.startBtn.disabled = true;
 
 let selectedDate = null;
 
@@ -17,9 +18,14 @@ refs.startBtn.addEventListener('click', onStartBtnClick);
 
 function onStartBtnClick() {
   const timer = setInterval(() => {
+    refs.startBtn.disabled = true;
+    refs.dateInput.disabled = true;
+
     const difference = selectedDate - Date.now();
     if (difference <= 0) {
       clearInterval(timer);
+      refs.dateInput.disabled = false;
+
       return;
     }
     const { days, hours, minutes, seconds } = convertMs(difference);
